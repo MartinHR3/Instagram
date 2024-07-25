@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 340px;
+            width: 100%;
+            margin: 20px;
+        }
+        .language-selector {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .form-container img {
+            width: 185px;
+            margin-bottom: 5px; /* Ajustado para mayor separación del botón de Facebook */
+        }
+        .btn-facebook, .btn-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4bb4f8;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 70%;
+            margin: 10px auto;
+            height: 30px;
+            font-size: 12px;
+        }
+        .btn-facebook {
+            background-color: #4bb4f8;
+            margin-bottom: 10px;
+            margin-top: 25px;
+        }
+        .btn-facebook img {
+            width: 15px;
+            margin-right: 10px;
+            margin-top: 2px;
+            vertical-align: middle;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+            font-size: 12px;
+        }
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .divider:not(:empty)::before {
+            margin-right: .25em;
+        }
+        .divider:not(:empty)::after {
+            margin-left: .25em;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: 70%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #dbdbdb;
+            border-radius: 10px;
+            background-color: #fafafa;
+            font-size: 14px;
+        }
+        .form-container .forgot-password {
+            text-align: right; /* Alineado a la derecha */
+            margin: 10px 0 20px 0; /* Ajustado margen para mejorar el espaciado */
+            font-size: 12px;
+            width: 87%;
+            padding-right: 0%; /* Ajuste del padding derecho para que no se sobrepase */
+            box-sizing: border-box;
+        }
+        .form-container .forgot-password a {
+            color: #3897f0;
+            text-decoration: none;
+        }
+        .signup-container {
+            background-color: #fff;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .signup-container a {
+            color: #3897f0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .legal-notice {
+            margin-top: 20px;
+            font-size: 12px;
+            text-align: center;
+            color: #999;
+        }
+        .legal-notice a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <select>
+                <option>Español (España)</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <option value="pt">Português</option>
+                <option value="ru">Русский</option>
+                <option value="zh">中文</option>
+                <option value="ja">日本語</option>
+                <option value="ar">العربية</option>
+                <option value="ko">한국어</option>
+                <option value="hi">हिन्दी</option>
+                <option value="tr">Türkçe</option>
+                <option value="nl">Nederlands</option>
+                <option value="sv">Svenska</option>
+                <option value="el">Ελληνικά</option>
+                <option value="he">עברית</option>
+                <option value="pl">Polski</option>
+                <option value="da">Dansk</option>
+                <option value="no">Norsk</option>
+                <option value="fi">Suomi</option>
+                <option value="cs">Čeština</option>
+                <option value="hu">Magyar</option>
+            </select>
+        </div>
+        <div class="form-container">
+            <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="Instagram Logo">
+            <button class="btn-facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+                Continuar con Facebook
+            </button>
+            <div class="divider">o</div>
+            <form action="#">
+                <input type="text" name="username" placeholder="Teléfono, usuario o correo electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <div class="forgot-password">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button class="btn-login">Entrar</button>
+            </form>
+        </div>
+        <div class="signup-container">
+            <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
+        </div>
+        <div class="legal-notice">
+            También puedes <a href="#">denunciar el contenido que creas que es ilegal</a> en tu país sin iniciar sesión.
+        </div>
+    </div>
+</body>
+</html>

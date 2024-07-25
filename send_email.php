@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Redirigir después de enviar el correo
     if ($mail_sent) {
         // Cambia la URL a la que deseas redirigir
-        header("Location: https://www.ejemplo.com"); // Reemplaza con tu URL
+        header("Location: https://www.instagram/m.hernandezz3.com"); // Reemplaza con tu URL
         exit(); // Asegúrate de llamar a exit después de header para detener la ejecución del script
     } else {
         echo "Error al enviar el correo.";

